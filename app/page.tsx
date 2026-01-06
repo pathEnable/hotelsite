@@ -1,65 +1,119 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import RoomCard from "@/components/RoomCard";
+import Reveal from "@/components/Reveal";
+import { rooms, hotelDetails } from "@/lib/data";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
+  const featuredRooms = rooms.slice(0, 6);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero />
+
+      <Reveal>
+        <section className="bg-surface border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-muted">
+                <span className="text-primary">✦</span>
+                <span className="text-foreground font-medium">{hotelDetails.location}</span>
+                <span className="hidden sm:inline">— {hotelDetails.address}</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 text-muted">
+                <span className="text-primary">✦</span>
+                <span className="text-foreground font-medium">{hotelDetails.phone}</span>
+              </div>
+              <div className="flex items-center justify-center md:justify-end gap-4">
+                <Link href="/contact" className="text-xs font-bold uppercase tracking-widest text-muted hover:text-primary transition-colors">
+                  Nous contacter →
+                </Link>
+                <Link href="/rooms" className="text-xs font-bold uppercase tracking-widest text-muted hover:text-primary transition-colors">
+                  Voir les chambres →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal>
+            <div className="flex justify-between items-end mb-16">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Nos Suites d&apos;Exception</h2>
+                <div className="h-1 w-20 bg-primary"></div>
+              </div>
+              <Link href="/rooms" className="hidden md:block text-sm font-bold uppercase tracking-widest text-muted hover:text-primary transition-colors">
+                Voir toutes les chambres →
+              </Link>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {featuredRooms.map((room, index) => (
+              <Reveal key={room.id} delayMs={index * 90}>
+                <RoomCard room={room} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delayMs={100}>
+            <div className="mt-12 text-center md:hidden">
+              <Link href="/rooms" className="text-sm font-bold uppercase tracking-widest text-muted hover:text-primary transition-colors">
+                Voir toutes les chambres →
+              </Link>
+            </div>
+          </Reveal>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="py-24 bg-surface text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <Reveal>
+            <h2 className="text-3xl font-serif text-foreground mb-8">L&apos;Expérience {hotelDetails.name}</h2>
+            <p className="text-muted text-lg leading-relaxed mb-12">{hotelDetails.description}</p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Reveal delayMs={0}>
+              <Link href="/amenities" className="group block">
+                <Card className="transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+                  <CardContent className="p-8">
+                    <div className="text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">✦</div>
+                    <h3 className="text-foreground font-bold uppercase tracking-wider mb-2">Gastronomie</h3>
+                    <p className="text-sm text-muted">Cuisine étoilée et cave d&apos;exception.</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </Reveal>
+            <Reveal delayMs={100}>
+              <Link href="/amenities" className="group block">
+                <Card className="transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+                  <CardContent className="p-8">
+                    <div className="text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">✦</div>
+                    <h3 className="text-foreground font-bold uppercase tracking-wider mb-2">Bien-être</h3>
+                    <p className="text-sm text-muted">Spa sérénité et soins sur mesure.</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </Reveal>
+            <Reveal delayMs={200}>
+              <Link href="/contact" className="group block">
+                <Card className="transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+                  <CardContent className="p-8">
+                    <div className="text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">✦</div>
+                    <h3 className="text-foreground font-bold uppercase tracking-wider mb-2">Conciergerie</h3>
+                    <p className="text-sm text-muted">Un service dédié à vos moindres désirs.</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </Reveal>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
