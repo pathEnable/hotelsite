@@ -29,7 +29,7 @@ export default function AmenitiesPage() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <p className="text-muted text-lg leading-relaxed">
-                                    Découvrez la richesse culinaire de Parakou. Notre restaurant vous propose les meilleures spécialités locales : igname pilée, fromage peulh, et grillades savoureuses.
+                                    Découvrez la richesse culinaire de Parakou. Notre restaurant propose une restauration africaine et européenne : spécialités locales (igname pilée, fromage peulh, grillades) et plats classiques revisités.
                                     Un cadre convivial et ventilé pour vos repas d&apos;affaires ou de famille.
                                 </p>
                                 <ul className="space-y-2 text-muted">

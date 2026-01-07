@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Hôtel Ave Maria | Parakou",
-  description: "Hôtel Ave Maria à Parakou : suites, chambres, restaurant et détente.",
+  description: "Hôtel Ave Maria à Parakou : chambres, restaurant et détente.",
 };
 
 export default function RootLayout({

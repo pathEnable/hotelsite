@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import { rooms, hotelDetails } from "@/lib/data";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import { MapPin } from "lucide-react";
 
 export default function Home() {
   const featuredRooms = rooms.slice(0, 6);
@@ -17,7 +18,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center justify-center md:justify-start gap-2 text-muted">
-                <span className="text-primary">✦</span>
+                <MapPin className="h-4 w-4 text-primary" />
                 <span className="text-foreground font-medium">{hotelDetails.location}</span>
                 <span className="hidden sm:inline">— {hotelDetails.address}</span>
               </div>
@@ -43,7 +44,7 @@ export default function Home() {
           <Reveal>
             <div className="flex justify-between items-end mb-16">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Nos Suites d&apos;Exception</h2>
+                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Nos Chambres</h2>
                 <div className="h-1 w-20 bg-primary"></div>
               </div>
               <Link href="/rooms" className="hidden md:block text-sm font-bold uppercase tracking-widest text-muted hover:text-primary transition-colors">
@@ -84,7 +85,7 @@ export default function Home() {
                   <CardContent className="p-8">
                     <div className="text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">✦</div>
                     <h3 className="text-foreground font-bold uppercase tracking-wider mb-2">Gastronomie</h3>
-                    <p className="text-sm text-muted">Cuisine étoilée et cave d&apos;exception.</p>
+                    <p className="text-sm text-muted">Spécialités africaines et européennes.</p>
                   </CardContent>
                 </Card>
               </Link>

@@ -54,10 +54,21 @@ export default function ServicesPage() {
           <Reveal delayMs={0}>
             <Card className="bg-surface/60">
               <CardHeader>
+                <CardTitle className="text-xl text-primary">Chambres climatisées & ventilées</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted">Un confort constant, de jour comme de nuit, pour un séjour agréable à Parakou.</p>
+              </CardContent>
+            </Card>
+          </Reveal>
+
+          <Reveal delayMs={0}>
+            <Card className="bg-surface/60">
+              <CardHeader>
                 <CardTitle className="text-xl text-primary">Wi‑Fi</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted">Connexion stable pour travailler, communiquer et se détendre.</p>
+                <p className="text-muted">Wi‑Fi gratuit pour travailler, communiquer et se détendre.</p>
               </CardContent>
             </Card>
           </Reveal>

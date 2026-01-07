@@ -12,8 +12,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function RoomPage({ params }: { params: { id: string } }) {
-    const room = rooms.find((r) => r.id === params.id);
+export default async function RoomPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const room = rooms.find((r) => r.id === id);
 
     if (!room) {
         notFound();
@@ -32,7 +33,7 @@ export default function RoomPage({ params }: { params: { id: string } }) {
                     className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 bg-linear-to-t from-black/80 to-transparent">
                     <div className="max-w-7xl mx-auto">
                         <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 animate-slide-up">{room.name}</h1>
                         <p className="text-xl text-gray-200 flex items-center gap-2 animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -81,7 +82,7 @@ export default function RoomPage({ params }: { params: { id: string } }) {
                             <CardContent className="p-8">
                                 <div className="flex justify-between items-center mb-6">
                                     <span className="text-muted">Tarif flexible à partir de</span>
-                                    <span className="text-3xl font-serif text-primary">{room.price}€</span>
+                                    <span className="text-3xl font-serif text-primary">{room.price.toLocaleString("fr-FR")} F CFA</span>
                                 </div>
 
                                 <Button className="w-full mb-4">Vérifier les disponibilités</Button>

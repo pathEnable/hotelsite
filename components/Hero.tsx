@@ -1,12 +1,44 @@
+"use client";
+
 import Link from "next/link";
+import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
+    const bgRef = React.useRef<HTMLDivElement | null>(null);
+
+    React.useEffect(() => {
+        const el = bgRef.current;
+        if (!el) return;
+
+        const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) return;
+
+        let raf = 0;
+        const onScroll = () => {
+            if (raf) return;
+            raf = window.requestAnimationFrame(() => {
+                raf = 0;
+                const y = window.scrollY || 0;
+                const offset = Math.min(80, y * 0.12);
+                el.style.transform = `translate3d(0, ${offset}px, 0) scale(1.06)`;
+            });
+        };
+
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            if (raf) window.cancelAnimationFrame(raf);
+        };
+    }, []);
+
     return (
         <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
             {/* Background with overlay */}
             <div
+                ref={bgRef}
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
                 style={{
                     backgroundImage: 'url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop")',

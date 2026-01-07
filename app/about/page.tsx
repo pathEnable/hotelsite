@@ -20,7 +20,7 @@ export default function AboutPage() {
                             <div className="h-px w-24 bg-primary mx-auto" />
 
                             <p className="text-muted leading-relaxed text-center">
-                                Installé à {hotelDetails.address}, {hotelDetails.name} vous offre des chambres et suites pensées pour le repos, un cadre calme,
+                                Installé à {hotelDetails.address}, {hotelDetails.name} vous offre des chambres pensées pour le repos, un cadre calme,
                                 et des espaces pour se retrouver (restaurant, détente, moments partagés).
                                 Notre équipe met un point d&apos;honneur à vous guider et à rendre votre séjour fluide, chaleureux et authentique.
                             </p>

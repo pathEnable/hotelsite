@@ -11,7 +11,7 @@ export default function RoomsPage() {
                     <Reveal>
                         <Card className="bg-surface/60">
                             <CardHeader className="text-center">
-                                <CardTitle className="text-4xl md:text-5xl">Nos Chambres & Suites</CardTitle>
+                                <CardTitle className="text-4xl md:text-5xl">Nos Chambres</CardTitle>
                                 <CardDescription className="text-base md:text-lg max-w-2xl mx-auto">
                                     Des espaces pensés pour le repos et l&apos;inspiration, alliant confort moderne et accueil chaleureux à Parakou.
                                 </CardDescription>

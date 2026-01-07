@@ -1,18 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Moon, Sun } from "lucide-react";
+import { MapPin, Menu, Moon, Sun } from "lucide-react";
 import * as React from "react";
 import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { hotelDetails } from "@/lib/data";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isLight, setIsLight] = React.useState(false);
     const pathname = usePathname();
+
+    const navItemBase =
+        "relative inline-flex items-center justify-center h-9 text-[13px] font-medium tracking-wide leading-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 active:scale-[0.98] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300";
 
     const isActive = (href: string) => {
         if (href === "/") return pathname === "/";
@@ -58,16 +62,16 @@ export default function Navbar() {
                     href="/"
                     className="text-2xl font-serif text-primary tracking-widest uppercase hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1"
                 >
-                    Ave <span className="text-foreground">Maria</span>
+                    Hote<span className="text-foreground">Logo</span>
                 </Link>
 
                 {/* Navigation */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-5">
                     <Link
                         href="/"
                         className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/") ? "text-primary" : "hover:text-primary"
+                            navItemBase,
+                            isActive("/") ? "text-primary after:scale-x-100" : "hover:text-primary hover:after:scale-x-100"
                         )}
                     >
                         ACCUEIL
@@ -75,44 +79,36 @@ export default function Navbar() {
                     <Link
                         href="/rooms"
                         className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/rooms") ? "text-primary" : "hover:text-primary"
+                            navItemBase,
+                            isActive("/rooms") ? "text-primary after:scale-x-100" : "hover:text-primary hover:after:scale-x-100"
                         )}
                     >
-                        CHAMBRES & SUITES
+                        NOS CHAMBRES
                     </Link>
                     <Link
                         href="/offers"
                         className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/offers") ? "text-primary" : "hover:text-primary"
+                            navItemBase,
+                            isActive("/offers") ? "text-primary after:scale-x-100" : "hover:text-primary hover:after:scale-x-100"
                         )}
                     >
-                        OFFRES
+                        OFFRES/SERVICES
                     </Link>
-                    <Link
-                        href="/services"
-                        className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/services") ? "text-primary" : "hover:text-primary"
-                        )}
-                    >
-                        SERVICES
-                    </Link>
+                   
                     <Link
                         href="/amenities"
                         className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/amenities") ? "text-primary" : "hover:text-primary"
+                            navItemBase,
+                            isActive("/amenities") ? "text-primary after:scale-x-100" : "hover:text-primary hover:after:scale-x-100"
                         )}
                     >
-                        RESTAURANT & SPA
+                        RESTAURATION
                     </Link>
                     <Link
                         href="/about"
                         className={cn(
-                            "text-sm font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md px-2 py-1 active:scale-[0.98]",
-                            isActive("/about") ? "text-primary" : "hover:text-primary"
+                            navItemBase,
+                            isActive("/about") ? "text-primary after:scale-x-100" : "hover:text-primary hover:after:scale-x-100"
                         )}
                     >
                         À PROPOS
@@ -120,7 +116,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile menu */}
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <Sheet>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" aria-label="Ouvrir le menu">
@@ -150,7 +146,7 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/rooms">Chambres & Suites</Link>
+                                    <Link href="/rooms">Chambres</Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -214,7 +210,8 @@ export default function Navbar() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="hidden md:flex items-center gap-2">
+                <div className="hidden lg:flex items-center gap-2">
+                    
                     <Button
                         variant="ghost"
                         size="icon"
@@ -225,7 +222,7 @@ export default function Navbar() {
                         {isLight ? <Moon /> : <Sun />}
                     </Button>
                     <Button asChild>
-                        <Link href="/contact">Contact / Réserver</Link>
+                        <Link href="/contact" className="shimmer">Contact / Réserver</Link>
                     </Button>
                 </div>
             </div>

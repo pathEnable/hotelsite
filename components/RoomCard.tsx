@@ -32,7 +32,7 @@ export default function RoomCard({ room }: RoomCardProps) {
                             {room.name}
                         </h3>
                         <span className="text-primary font-semibold">
-                            {room.price}€ <span className="text-xs text-muted font-normal">/nuit</span>
+                            {room.price.toLocaleString("fr-FR")} F CFA <span className="text-xs text-muted font-normal">/nuit</span>
                         </span>
                     </div>
                     <p className="text-sm text-muted line-clamp-2 leading-relaxed">{room.description}</p>
