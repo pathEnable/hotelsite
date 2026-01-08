@@ -15,16 +15,13 @@ export default function OffersPage() {
               Des attentions pensées pour rendre votre séjour à Parakou encore plus doux : escapades, séjours affaires, weekends en famille.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button asChild>
-                <Link href="/contact">Demander un devis</Link>
-              </Button>
+             
               <Button variant="outline" asChild>
                 <Link href="/rooms">Voir les chambres</Link>
               </Button>
             </div>
           </div>
         </Reveal>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Reveal delayMs={0}>
             <Card className="bg-surface/60">

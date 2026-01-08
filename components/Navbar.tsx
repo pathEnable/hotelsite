@@ -13,6 +13,7 @@ import { hotelDetails } from "@/lib/data";
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isLight, setIsLight] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = React.useState(false);
     const pathname = usePathname();
 
     const navItemBase =
@@ -35,6 +36,10 @@ export default function Navbar() {
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
+    React.useEffect(() => {
+        setMobileOpen(false);
+    }, [pathname]);
 
     const toggleTheme = () => {
         const root = document.documentElement;
@@ -117,7 +122,7 @@ export default function Navbar() {
 
                 {/* Mobile menu */}
                 <div className="lg:hidden">
-                    <Sheet>
+                    <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" aria-label="Ouvrir le menu">
                                 <Menu />
@@ -136,7 +141,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/">Accueil</Link>
+                                    <Link href="/" onClick={() => setMobileOpen(false)}>
+                                        Accueil
+                                    </Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -146,7 +153,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/rooms">Chambres</Link>
+                                    <Link href="/rooms" onClick={() => setMobileOpen(false)}>
+                                        Chambres
+                                    </Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -156,7 +165,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/offers">Offres</Link>
+                                    <Link href="/offers" onClick={() => setMobileOpen(false)}>
+                                        Offres
+                                    </Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -166,7 +177,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/services">Services</Link>
+                                    <Link href="/services" onClick={() => setMobileOpen(false)}>
+                                        Services
+                                    </Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -176,7 +189,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/amenities">Restaurant & Détente</Link>
+                                    <Link href="/amenities" onClick={() => setMobileOpen(false)}>
+                                        Restaurant & Détente
+                                    </Link>
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -186,7 +201,9 @@ export default function Navbar() {
                                     )}
                                     asChild
                                 >
-                                    <Link href="/about">À propos</Link>
+                                    <Link href="/about" onClick={() => setMobileOpen(false)}>
+                                        À propos
+                                    </Link>
                                 </Button>
                                 <Button variant="ghost" className="justify-start" onClick={toggleTheme}>
                                     {isLight ? (
@@ -201,7 +218,9 @@ export default function Navbar() {
                                 </Button>
                                 <div className="pt-4">
                                     <Button className="w-full" asChild>
-                                        <Link href="/contact">Contact / Réserver</Link>
+                                        <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                                            Contact / Réserver
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>
