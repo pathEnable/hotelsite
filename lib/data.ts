@@ -15,7 +15,7 @@ export const hotelDetails = {
   location: "Parakou, Bénin",
   address: "Quartier OKEDAMA, Parakou",
   phone: "+229 23 00 00 00",
-  email: "contact@avemaria.bj",
+  email: "contact@divine.bj",
   description: "Votre escale de prestige au cœur du septentrion. Ave Maria allie confort moderne et chaleur de l'accueil du Nord-Bénin."
 };
 
