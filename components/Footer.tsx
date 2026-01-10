@@ -46,7 +46,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-2">
                         <h3 className="text-2xl font-serif text-primary tracking-widest uppercase mb-6">
-                            Ave <span className="text-foreground">Maria</span>
+                            Ave <span className="text-foreground">Divine</span>
                         </h3>
                         <p className="text-muted leading-relaxed max-w-sm">
                             {hotelDetails.address}, {hotelDetails.location}. {hotelDetails.description}
