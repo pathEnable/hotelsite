@@ -50,7 +50,7 @@ export const rooms: Room[] = [
     size: 30,
     capacity: 3,
     description: "Plus d'espace et plus de confort : chambre climatisée et ventilée, parfaite pour un séjour prolongé.",
-    image: "https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=80",
     amenities: ["Climatisation", "Ventilateur", "Wi‑Fi gratuit", "Bureau"]
   },
   {
