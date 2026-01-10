@@ -103,7 +103,7 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center text-xs text-muted uppercase tracking-wider">
-                    <p>© 2025 Hôtel Ave Maria. Tous droits réservés.</p>
+                    <p>© 2025 Hôtel Ave Divine. Tous droits réservés.</p>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-foreground">Mentions Légales</a>
                         <a href="#" className="hover:text-foreground">Confidentialité</a>
