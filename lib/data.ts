@@ -11,7 +11,7 @@ export interface Room {
 }
 
 export const hotelDetails = {
-  name: "Ave Maria",
+  name: "Ave Divine",
   location: "Parakou, Bénin",
   address: "Quartier OKEDAMA, Parakou",
   phone: "+229 23 00 00 00",
