@@ -11,7 +11,7 @@ export interface Room {
 }
 
 export const hotelDetails = {
-  name: "Hotel Name",
+  name: "Hotel ORA",
   location: "Parakou, Bénin",
   address: "Quartier xxxxx, Parakou",
   phone: "+229 23 00 00 00",
