@@ -46,7 +46,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-2">
                         <h3 className="text-2xl font-serif text-primary tracking-widest uppercase mb-6">
-                            Ave <span className="text-foreground">Divine</span>
+                            Hotel <span className="text-foreground">ORA</span>
                         </h3>
                         <p className="text-muted leading-relaxed max-w-sm">
                             {hotelDetails.address}, {hotelDetails.location}. {hotelDetails.description}
@@ -103,7 +103,7 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center text-xs text-muted uppercase tracking-wider">
-                    <p>© 2025 Hôtel Ave Divine. Tous droits réservés.</p>
+                    <p>© 2025 Hôtel ORA. Tous droits réservés.</p>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-foreground">Mentions Légales</a>
                         <a href="#" className="hover:text-foreground">Confidentialité</a>
