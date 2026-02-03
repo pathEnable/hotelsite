@@ -11,12 +11,12 @@ export interface Room {
 }
 
 export const hotelDetails = {
-  name: "Ave Divine",
+  name: "Hotel Name",
   location: "Parakou, Bénin",
-  address: "Quartier OKEDAMA, Parakou",
+  address: "Quartier xxxxx, Parakou",
   phone: "+229 23 00 00 00",
-  email: "contact@avedivine.bj",
-  description: "Votre escale de prestige au cœur du septentrion. Ave Maria allie confort moderne et chaleur de l'accueil du Nord-Bénin."
+  email: "contact@xxxxxx.bj",
+  description: "Votre escale de prestige au cœur du septentrion. Notre Hotel allie confort moderne et chaleur de l'accueil du Nord-Bénin."
 };
 
 export const rooms: Room[] = [
