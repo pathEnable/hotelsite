@@ -50,7 +50,7 @@ export default function Hero() {
             {/* Content */}
             <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 tracking-wide leading-tight drop-shadow-lg">
-                    Ave Divine
+                    Hotel ORA
                 </h1>
                 <p className="text-xl md:text-2xl text-white/90 mb-10 font-light tracking-wider opacity-0 animate-slide-up drop-shadow-md" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
                     L&apos;élégance et le confort à Parakou
